@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--
 <html>
     <head>
         <meta charset="utf-8">
@@ -44,3 +45,144 @@
         </section>
     </body>
 </html>
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Airlines!!</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header>
+            <h1>PUERTO RICO AIRLINES</h1>
+            <div id="menu">
+                <button>HOME</button>
+                <button>FLIGHTS</button>
+                <button>SUPPORT</button>
+                <button>LOGIN</button>
+            </div>
+        </header>
+        <div id="main">
+            <div class="card">
+                <h3>Flights</h3>
+                <p>Come check out or sweet flights! Direct flights available daily!</p>
+                <button id="LetsGo">Lets go</button>
+            </div>
+            <div class="card" id="GroupRatesCard">
+                <h3>Group Trips</h3>
+                <p>We offer great group rates! For families with 4 members to huge gatherings with 50+!</p>
+                <button id="GroupRates">Group Rates</button>
+            </div>
+            <div class="card" id="JumpInCard">
+                <h3>Discount Flights</h3>
+                <p>Discount flights available for individuals! Single chair filler tickets for low rates!</p>
+                <button id="JumpIn">Jump in</button>
+            </div>
+            <div class="card large-card" id="LearnMoreCard">
+                <h3>About us</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <button id="LearnMore">Learn More</button>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        function onClickJump(clickEvent) {
+            alert("Splash! We're all in!!");
+        }
+        document.getElementById("JumpIn").addEventListener("click", onClickJump);
+        
+        function onClickLearn(clickEvent) {
+            if (clickEvent.target.innerHTML == "Learn More") {
+                clickEvent.target.innerHTML = "See Less";
+            } else {
+                clickEvent.target.innerHTML = "Learn More";
+            }
+            
+            let nElement = document.createElement("div");
+            nElement.className = "card";
+            nElement.id = "OurFact";
+            nElement.innerHTML = "<br><br>We used Kendra as a div in our previous assignment!";
+            
+            if (document.getElementById("OurFact") == null) {
+                clickEvent.target.parentNode.insertBefore(nElement, clickEvent.target);
+            } else {
+                document.getElementById("OurFact").remove();
+            }
+        }
+        document.getElementById("LearnMore").addEventListener("click", onClickLearn);
+        
+        function onClickGroup(clickEvent) {
+            if (document.getElementById("OurRates") == null) {
+                let nElement = document.createElement("div");
+                nElement.className = "card";
+                nElement.id = "OurRates";
+                nElement.innerHTML = "<h3>Our rates</h3><p>100$ for a roundtrip flight to Florida, 200$ one-way!</p>";
+                document.getElementById("JumpInCard").parentNode.insertBefore(nElement, document.getElementById("LearnMoreCard"));
+            } else {
+                document.getElementById("OurRates").remove();
+            }
+        }
+        document.getElementById("GroupRates").addEventListener("click", onClickGroup);
+        
+        function onClickLetsGo(clickEvent) {
+            if (document.getElementById("OurForm") == null) {
+                let nElement = document.createElement("form");
+                nElement.className = "card";
+                nElement.id = "OurForm";
+                nElement.innerHTML = `
+                    <input type="text" id="firstName"></input>
+                    <input type="text" id="lastName"></input>
+                    <select id="city">
+                        <option selected>San Juan</option>
+                        <option>Bayamon</option>
+                        <option>Carolina</option>
+                        <option>Ponce</option>
+                        <option>Caguas</option>
+                    </select>
+                    <br><br>
+                    <button id="BookIt">Book it</button>
+                `;
+                document.getElementById("JumpInCard").parentNode.insertBefore(nElement, document.getElementById("LearnMoreCard"));
+                document.getElementById("BookIt").addEventListener("click", () => {
+                    alert(document.getElementById("firstName").value + "|" + document.getElementById("lastName").value + "|" + document.getElementById("city").value);
+                    clickEvent.target.remove();
+                });
+            }
+        }
+        document.getElementById("LetsGo").addEventListener("click", onClickLetsGo);
+    </script>
+</html>
+
+
+
+<!--
+Stretch activity - make the "Learn More" button toggle to be "See Less" when clicked. 
+"See Less" button reverts the display to be the original text;
+
+1) When you click Jump In - 
+    * Have an alert pop up saying "Splash! We're all in!!"
+
+2) When you click "Learn more" - 
+    * Hide the "Learn More" button
+    * Display an interesting fact about you and your partner 
+        Note - do not remove the other information
+
+3) When you click Group Rates
+    * A box should appear above the about us box and it should display a list of group Rates
+    * Clicking the group rates button again will hide the group rates list.
+        it should be styled like the other boxes
+
+4) When you click lets go 
+    * Display an input form that takes in the user's 
+        * first and last name
+        * dropdown with the cities:
+            San Juan, Bayamon, Carolina, Ponce, Caguas
+        * Another button that says "Book it"
+            when clicking this button - 
+            the information input from the form should be displayed in an alert
+-->
