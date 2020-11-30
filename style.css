@@ -3,3 +3,85 @@ Header background - #FFDBAA
 button - #805215
 Header Text - #553100
 Main background - #D4A76A*/
+
+html{
+    background-color: #D4A76A;
+}
+
+.header{
+    background-color: #FFDBAA;
+    border: none;
+    margin-left: -10px;
+    width: 101vw;
+    margin-top: -10px;
+    height: 18vh;
+    border-bottom: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+label{
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    color: #553100;
+    margin-left: 23px;
+    margin-right: 200px;
+    margin-bottom: 40px;
+}
+
+.tButton{
+    background-color: #805215;
+    color: white;
+    border: none;
+    height: 35px;
+    width: 7.5vw;
+    margin-right: 28px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.bButton{
+    background-color: #805215;
+    color: white;
+    border: none;
+    height: 35px;
+    width: 7.5;
+}
+
+.KendraTitle{
+    text-align: center;
+    font-weight: bolder;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+#aThing{
+    
+}
+
+KendraL{
+    margin-left: 55px;
+    text-align: left;
+    float:left;
+    background-color: white;
+    padding: 15px;
+}
+
+KendraM{
+    position: absolute;
+    text-align: left;
+    font-family: sans-serif;
+    background-color: white;
+    padding: 15px;
+}
+
+KendraR{
+    text-align: left;
+    float:right;
+    font-family: sans-serif;
+    background-color: white;
+    padding: 15px;
+}
